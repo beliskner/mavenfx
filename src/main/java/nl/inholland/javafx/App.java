@@ -1,24 +1,17 @@
 package nl.inholland.javafx;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import nl.inholland.javafx.data.Database;
+import nl.inholland.javafx.ui.windows.LoginWindow;
 
 public class App extends Application {
     @Override
     public void start(Stage window) throws Exception {
-        window.setHeight(600);
-        window.setWidth(800);
-        window.setTitle("Inholland JavaFX Starter Project");
+        window.setTitle("Login");
+        Database db = new Database();
 
-        BorderPane pane = new BorderPane();
-        Label hello = new Label("Hello World");
-        pane.setCenter(hello);
-
-        Scene scene = new Scene(pane);
-        window.setScene(scene);
-        window.show();
+        LoginWindow login = new LoginWindow(db);
+        login.getStage().show();
     }
 }
